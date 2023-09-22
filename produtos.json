@@ -1,16 +1,1 @@
-[
-    {
-        "Id": "1",
-        "Nome": "Product 1",
-        "Descricao": "Description 1",
-        "Preco": 100.0,
-        "Disponivel": true
-    },
-    {
-        "Id": "2",
-        "Nome": "Product 2",
-        "Descricao": "Description 2",
-        "Preco": 50.5,
-        "Disponivel": false
-    }
-]
+[{"id":"00000000-0000-0000-0000-000000000000","Nome":"Product 1","Descricao":"Description 1","Preco":100.0,"Disponivel":true},{"id":"00000000-0000-0000-0000-000000000000","Nome":"Product 2","Descricao":"Description 2","Preco":50.5,"Disponivel":false},{"id":"00000000-0000-0000-0000-000000000000","Nome":"Product 3","Descricao":"Description 3","Preco":120.2,"Disponivel":false},{"id":"00000000-0000-0000-0000-000000000000","Nome":"Product 4","Descricao":"Description 4","Preco":50.0,"Disponivel":true},{"id":"00000000-0000-0000-0000-000000000000","Nome":"Product 5","Descricao":"Description 5","Preco":21.51,"Disponivel":true},{"id":"4ee07cda-6752-49a9-9eb4-300689ea77e5","Nome":"New Product","Descricao":"Description","Preco":99.99,"Disponivel":true},{"id":"8baf0562-325f-4af4-852f-cd505d0e8a79","Nome":"a","Descricao":"b","Preco":1,"Disponivel":false},{"id":"0603a5a6-7d04-44f8-9087-ae856b238bfb","Nome":"c","Descricao":"c","Preco":12,"Disponivel":false},{"id":"95aa03ce-c69c-4eb6-903e-bfe9b865bbde","Nome":"treco","Descricao":"a","Preco":123,"Disponivel":false}]

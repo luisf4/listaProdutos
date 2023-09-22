@@ -11,7 +11,7 @@ public class HomeController : Controller {
     public ActionResult Search(IFormCollection from) {
         string? search = from["search"];
         ProdutoData db = new ProdutoData();
-        List<Produto> lista = db.ReadFromJsonFile(search);
+        List<Produto> lista = db.ReadFromJsonFile(search!);
         return View("Index",lista);
     }
 }
