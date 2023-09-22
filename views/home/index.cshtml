@@ -1,0 +1,71 @@
+@model List<Produto>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Página</title>
+    <!-- Adicione o link para o Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <form action="/home/search" method="POST" class="mb-4">
+            <div class="input-group">
+                <input name="search" type="text" class="form-control" placeholder="Pesquisar">
+                <button class="btn btn-primary">Pesquisar</button>
+            </div>
+        </form>
+        <div>
+            <h3>Total de Produtos: @Model.Count</h3>
+            <a href="/cadastro">Click Me</a>
+
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Disponivel</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var produto in Model)
+                {
+                    <tr>
+                        <td>@produto.Nome</td>
+                        <td>@produto.Descricao</td>
+                        <td>@produto.Preco</td>
+                        <td>@if (produto.Disponivel)
+                            {
+                                <input type="checkbox" checked disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" disabled />
+                            }
+                        </td>
+                        <td> 
+                            <a href="">a</a>
+                            <a href="">b</a>
+                            
+                            </td>
+                            
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Adicione o script do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+[
+    {
+        "Id": "1",
+        "Nome": "Product 1",
+        "Descricao": "Description 1",
+        "Preco": 100.0,
+        "Disponivel": true
+    },
+    {
+        "Id": "2",
+        "Nome": "Product 2",
+        "Descricao": "Description 2",
+        "Preco": 50.5,
+        "Disponivel": false
+    }
+]
