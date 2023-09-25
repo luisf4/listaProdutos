@@ -36,7 +36,7 @@
                 <input name="descricao" type="text" class="form-control" placeholder="Descrição">
             </div>
             <div class="mb-3">
-                <input name="preco" type="int" class="form-control" placeholder="Preço">
+                <input name="preco" type="number" class="form-control" placeholder="Preço">
             </div>
             <div class="mb-3 form-check">
                 <input name="disponivel" type="checkbox" class="form-check-input" id="disponivelCheckbox">
@@ -52,4 +52,27 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const priceInput = document.getElementById('priceInput');
+
+    priceInput.addEventListener('input', function() {
+        // Get the current input value and remove non-numeric and non-decimal characters
+        let inputValue = this.value.replace(/[^0-9.]/g, '');
+
+        // Ensure that there's only one decimal point
+        const decimalCount = inputValue.split('.').length - 1;
+        if (decimalCount > 1) {
+            inputValue = inputValue.slice(0, -1); // Remove the last character
+        }
+
+        // Format the input value as a price
+        if (inputValue) {
+            const formattedPrice = '$ ' + parseFloat(inputValue).toFixed(2);
+            this.value = formattedPrice;
+        }
+    });
+});
+</script>
+
 </html>

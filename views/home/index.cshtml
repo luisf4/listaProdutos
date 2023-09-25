@@ -19,12 +19,14 @@
     </form>
     <div class="button-text">
         <h3>Total de Produtos: @Model.Count</h3>
-        <a href="/cadastro" class="btn btn-primary">Adicionar Produto</a>
+        <div class="py-2">
+            <a href="/cadastro" class="btn btn-primary">Adicionar</a>
+        </div>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Produto</th>
+                <th><a href="/home/search?order=preco">Produto</a></th>
                 <th>Descrição</th>
                 <th>Preço</th>
                 <th>Disponível</th>

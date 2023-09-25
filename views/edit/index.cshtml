@@ -41,7 +41,7 @@
                 <input name="descricao" type="text" class="form-control" placeholder="Descrição" value="@produto.Descricao">
             </div>
             <div class="mb-3">
-                <input name="preco" type="int" class="form-control" placeholder="Preço" value="@produto.Preco">
+                <input name="preco" type="number" class="form-control" placeholder="Preço" value="@produto.Preco">
             </div>
             <div class="mb-3 form-check">
                 @if (produto.Disponivel){
@@ -52,7 +52,7 @@
                     <label class="form-check-label" for="disponivelCheckbox">Disponível</label>
                 }
             </div>
-            <a href="/cadastro"><button class="btn btn-primary">Adicionar</button></a>
+            <a href="/cadastro"><button class="btn btn-primary">Editar</button></a>
             
         </form>
     </div>
