@@ -15,7 +15,13 @@ public class CadastroController : Controller
 
         try
         {
-            bool.TryParse(form["disponivel"], out bool disponivel);
+            Console.WriteLine(form["disponivel"]);
+            bool disponivel = false; 
+            if (form["disponivel"] == "on") {
+                disponivel = true;
+            } else {
+                disponivel = false;
+            }
             decimal.TryParse(form["preco"], out decimal preco);
             Produto newProduto = new Produto
             {
@@ -30,7 +36,7 @@ public class CadastroController : Controller
         }
         catch
         {
-            Console.WriteLine("aaaaaaaaaaa");
+            Console.WriteLine("Cant create a new produto");
             return View();
         }
     }
