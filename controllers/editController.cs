@@ -5,23 +5,24 @@ public class EditController : Controller
     [Route("edit")]
     public IActionResult Index(string produtoId)
     {
-        // Fuckn parse the string to Guid again !
-        Guid id = Guid.NewGuid();
+        // Parseia a string para Guid 
         if (Guid.TryParse(produtoId, out var parsedId))
         {
-            id = parsedId;
+            Guid id = parsedId;
         }
         else
         {
-            Console.WriteLine("Error On parsing");
+            Console.WriteLine("Erro na conversão");
         }
-
+        // Cria uma instancia do db
         ProdutoData db = new ProdutoData();
+
+        // Busca o item com o mesmo ID
         List<Produto> produto = db.SearchById(parsedId);
         return View(produto);
     }
 
-
+    // Atualiza 
     public IActionResult Atualizar(IFormCollection form)
     {
         ProdutoData produtoData = new ProdutoData();
@@ -38,7 +39,7 @@ public class EditController : Controller
                 disponivel = false;
             }
 
-            // Check if the "id" field is not null or empty
+            // Verifica se o campo "id" não está nulo ou vazio
             if (!string.IsNullOrEmpty(form["id"]))
             {
                 decimal.TryParse(form["Preco"], out decimal preco);
@@ -50,27 +51,19 @@ public class EditController : Controller
                     Preco = preco,
                     Disponivel = disponivel
                 };
-
-                Console.WriteLine(newProduto.id);
-                Console.WriteLine(newProduto.Nome);
-                Console.WriteLine(newProduto.Descricao);
-                Console.WriteLine(newProduto.Preco);
-                Console.WriteLine(newProduto.Disponivel);
                 produtoData.UpdateProduto(newProduto.id, newProduto);
             }
             else
             {
-                Console.WriteLine("The 'id' field is null or empty.");
+                Console.WriteLine("O campo 'id' está nulo ou vazio.");
             }
 
             return RedirectToAction("Index", "Home");
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Cant update a new produto: ERROR {e}");
+            Console.WriteLine($"Não foi possível atualizar o novo produto: ERRO {e}");
             return RedirectToAction("Index", "Home");
         }
     }
-
-
 }

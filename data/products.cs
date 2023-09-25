@@ -5,8 +5,9 @@ using System.Text.Json;
 
 public class ProdutoData
 {
-    private string jsonFilePath = "produtos.json"; // JSON file path
+    private string jsonFilePath = "produtos.json"; // Caminho do arquivo JSON
 
+    // Lê os dados de um arquivo JSON e retorna uma lista de produtos
     public List<Produto> ReadFromJsonFile()
     {
         try
@@ -19,17 +20,18 @@ public class ProdutoData
             }
             else
             {
-                Console.WriteLine($"JSON file not found at {jsonFilePath}");
+                Console.WriteLine($"Arquivo JSON não encontrado em {jsonFilePath}");
                 return new List<Produto>();
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error reading data from JSON file: {ex.Message}");
+            Console.WriteLine($"Erro ao ler dados do arquivo JSON: {ex.Message}");
             return new List<Produto>();
         }
     }
 
+    // Lê os dados de um arquivo JSON e filtra produtos com base em uma pesquisa
     public List<Produto> ReadFromJsonFile(string search)
     {
         try
@@ -53,16 +55,18 @@ public class ProdutoData
             }
             else
             {
-                Console.WriteLine($"JSON file not found at {jsonFilePath}");
+                Console.WriteLine($"Arquivo JSON não encontrado em {jsonFilePath}");
                 return new List<Produto>();
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error reading data from JSON file: {ex.Message}");
+            Console.WriteLine($"Erro ao ler dados do arquivo JSON: {ex.Message}");
             return new List<Produto>();
         }
     }
+
+    // Lê os dados de um arquivo JSON e filtra produtos com base em um ID
     public List<Produto> SearchById(Guid id)
     {
         try
@@ -86,44 +90,46 @@ public class ProdutoData
             }
             else
             {
-                Console.WriteLine($"JSON file not found at {jsonFilePath}");
+                Console.WriteLine($"Arquivo JSON não encontrado em {jsonFilePath}");
                 return new List<Produto>();
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error reading data from JSON file: {ex.Message}");
+            Console.WriteLine($"Erro ao ler dados do arquivo JSON: {ex.Message}");
             return new List<Produto>();
         }
     }
 
+    // Adiciona um produto a um arquivo JSON
     public void AppendToJsonFile(Produto produto)
     {
         try
         {
-            List<Produto> produtos = ReadFromJsonFile(); // Read existing data
+            List<Produto> produtos = ReadFromJsonFile(); // Lê os dados existentes
 
             if (produtos != null)
             {
-                produtos.Add(produto); // Append the new product to the list
+                produtos.Add(produto); // Adiciona o novo produto à lista
                 string jsonData = JsonSerializer.Serialize(produtos);
 
                 File.WriteAllText(jsonFilePath, jsonData);
 
-                Console.WriteLine($"Product appended to JSON file: {jsonFilePath}");
+                Console.WriteLine($"Produto adicionado ao arquivo JSON: {jsonFilePath}");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error appending product to JSON file: {ex.Message}");
+            Console.WriteLine($"Erro ao adicionar o produto ao arquivo JSON: {ex.Message}");
         }
     }
 
+    // Atualiza um produto em um arquivo JSON com base em seu ID
     public void UpdateProduto(Guid id, Produto updatedProduto)
     {
         try
         {
-            List<Produto> produtos = ReadFromJsonFile(); // Read existing data
+            List<Produto> produtos = ReadFromJsonFile(); // Lê os dados existentes
 
             if (produtos != null)
             {
@@ -131,35 +137,35 @@ public class ProdutoData
 
                 if (index != -1)
                 {
-                    produtos[index] = updatedProduto; // Update the product
+                    produtos[index] = updatedProduto; // Atualiza o produto
                     string jsonData = JsonSerializer.Serialize(produtos);
 
                     File.WriteAllText(jsonFilePath, jsonData);
 
-                    Console.WriteLine($"Product updated in JSON file: {jsonFilePath}");
+                    Console.WriteLine($"Produto atualizado no arquivo JSON: {jsonFilePath}");
                 }
                 else
                 {
-                    Console.WriteLine($"Product with ID {id} not found.");
+                    Console.WriteLine($"Produto com ID {id} não encontrado.");
                 }
             }
             else
             {
-                Console.WriteLine("Error reading data from JSON file or the file is empty.");
+                Console.WriteLine("Erro ao ler dados do arquivo JSON ou o arquivo está vazio.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error updating product in JSON file: {ex.Message}");
+            Console.WriteLine($"Erro ao atualizar o produto no arquivo JSON: {ex.Message}");
         }
     }
 
-
+    // Remove um produto de um arquivo JSON com base em seu ID
     public void Delete(Guid id)
     {
         try
         {
-            List<Produto> produtos = ReadFromJsonFile(); // Read existing data
+            List<Produto> produtos = ReadFromJsonFile(); // Lê os dados existentes
 
             if (produtos != null)
             {
@@ -167,27 +173,26 @@ public class ProdutoData
 
                 if (index != -1)
                 {
-                    produtos.RemoveAt(index);
+                    produtos.RemoveAt(index); // Remove o produto
                     string jsonData = JsonSerializer.Serialize(produtos);
 
                     File.WriteAllText(jsonFilePath, jsonData);
 
-                    Console.WriteLine($"Product Deleted in JSON file: {jsonFilePath}");
+                    Console.WriteLine($"Produto excluído no arquivo JSON: {jsonFilePath}");
                 }
                 else
                 {
-                    Console.WriteLine($"Product with ID {id} not found.");
+                    Console.WriteLine($"Produto com ID {id} não encontrado.");
                 }
             }
             else
             {
-                Console.WriteLine("Error reading data from JSON file or the file is empty.");
+                Console.WriteLine("Erro ao ler dados do arquivo JSON ou o arquivo está vazio.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error Deleting product in JSON file: {ex.Message}");
+            Console.WriteLine($"Erro ao excluir o produto no arquivo JSON: {ex.Message}");
         }
     }
-
 }
