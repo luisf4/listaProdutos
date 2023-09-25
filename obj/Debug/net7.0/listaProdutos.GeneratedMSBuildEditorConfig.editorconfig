@@ -9,21 +9,21 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = listaProdutos
 build_property.RootNamespace = listaProdutos
-build_property.ProjectDir = c:\Users\luis\Desktop\stuff\listaProdutos\
+build_property.ProjectDir = C:\Users\luis\Desktop\stuff\listaProdutos\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\luis\Desktop\stuff\listaProdutos
+build_property.MSBuildProjectDirectory = C:\Users\luis\Desktop\stuff\listaProdutos
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/luis/Desktop/stuff/listaProdutos/views/cadastro/index.cshtml]
+[C:/Users/luis/Desktop/stuff/listaProdutos/views/cadastro/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = dmlld3NcY2FkYXN0cm9caW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/luis/Desktop/stuff/listaProdutos/views/edit/index.cshtml]
+[C:/Users/luis/Desktop/stuff/listaProdutos/views/edit/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = dmlld3NcZWRpdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/luis/Desktop/stuff/listaProdutos/views/home/index.cshtml]
+[C:/Users/luis/Desktop/stuff/listaProdutos/views/home/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = dmlld3NcaG9tZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
