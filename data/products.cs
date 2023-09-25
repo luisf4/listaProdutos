@@ -154,4 +154,40 @@ public class ProdutoData
         }
     }
 
+
+    public void Delete(Guid id)
+    {
+        try
+        {
+            List<Produto> produtos = ReadFromJsonFile(); // Read existing data
+
+            if (produtos != null)
+            {
+                int index = produtos.FindIndex(p => p.id == id);
+
+                if (index != -1)
+                {
+                    produtos.RemoveAt(index);
+                    string jsonData = JsonSerializer.Serialize(produtos);
+
+                    File.WriteAllText(jsonFilePath, jsonData);
+
+                    Console.WriteLine($"Product Deleted in JSON file: {jsonFilePath}");
+                }
+                else
+                {
+                    Console.WriteLine($"Product with ID {id} not found.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error reading data from JSON file or the file is empty.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error Deleting product in JSON file: {ex.Message}");
+        }
+    }
+
 }

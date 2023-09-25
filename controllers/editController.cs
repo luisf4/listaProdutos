@@ -50,6 +50,12 @@ public class EditController : Controller
                     Preco = preco,
                     Disponivel = disponivel
                 };
+
+                Console.WriteLine(newProduto.id);
+                Console.WriteLine(newProduto.Nome);
+                Console.WriteLine(newProduto.Descricao);
+                Console.WriteLine(newProduto.Preco);
+                Console.WriteLine(newProduto.Disponivel);
                 produtoData.UpdateProduto(newProduto.id, newProduto);
             }
             else
